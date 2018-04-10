@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :contacts do
+  resources :contacts, only: [:new, :create] do
   end
   
   root to: 'blogs#index'
