@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :contacts do
   end
   
+  root to: 'blogs#index'
 end
