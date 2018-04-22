@@ -8,5 +8,9 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create] do
   end
   
-  root to: 'blogs#index'
+  resources  :tops, only: [:index] do
+  end
+  
+  root to: 'tops#index'
+  
 end

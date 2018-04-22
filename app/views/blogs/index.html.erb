@@ -2,26 +2,25 @@
 
 <p><%= notice %></p>
 
-<table>
-  <tr>
-    <th>タイトル</th>
-    <th>内容</th>
-  </tr>
+<div class="table-responsive">
+  <table class="table">
+      <tr>
+          <th>タイトル</th>
+      </tr>
+  
+  
+   <% @blogs.each do |blog| %>
+     <tr>
+       <td><%= blog.title %></td>
+       <td><%= link_to '詳細', blog_path(blog.id) %></td>
+       <td><%= link_to "編集", edit_blog_path(blog.id) %></td>
+       <td><%= link_to '削除', blog_path(blog.id), method: :delete,
+            data:{confirm:'このブログを削除してよろしいですか？'} %></td>
+     </tr>
+   <% end %>
+  </table>
+</div>
 
+  
+<%= link_to '新規作成', 'blogs/new' %>
 
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.content %></td>
-    <td><%= link_to '詳細を確認', blog_path(blog.id) %></td>
-    <td><%= link_to "ブログを編集", edit_blog_path(blog.id) %></td>
-    <td><%= link_to 'ブログを削除', blog_path(blog.id), method: :delete,
-        data:{confirm:'このブログを削除してよろしいですか？'} %></td>
-  </tr>
-<% end %>
-
-</table>
-
-<br>
-
-<%= link_to '新しくブログを投稿', new_blog_path %>

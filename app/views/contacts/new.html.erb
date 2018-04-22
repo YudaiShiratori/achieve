@@ -1,3 +1,5 @@
+<h1>お問い合わせ</h1>
+
 <%= form_with(model:@contact, local:true) do |form| %>
 
   <% if @contact.errors.any? %>
@@ -12,22 +14,22 @@
     </div>
   <% end %>
 
-  <table>
-    <tr class="name">
-      <th><%= form.label :name %></th>
-      <td><%= form.text_field :name %></td>
-    </tr>
-    <tr class="email">
-      <th><%= form.label :email %></th>
-      <td><%= form.text_field :email %></td>
-    </tr>
-    <tr class="content">
-      <th><%= form.label :content %></th>
-      <td><%= form.text_field :content %></td>
-    </tr>
-  </table>
+<div class="container">
+    <div class="name">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="email">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+    <div class="content">
+      <%= form.label :content %>
+      <%= form.text_field :content %>
+    </div>
+    <br>
   <%= form.submit %>
-  
 <% end %>
+</div>
 
 <%= notice %>

@@ -1,27 +1,40 @@
-
-<%= form_with(model: @blog, local: true, url: choose_new_or_edit) do |form| %>
-
-  <% if @blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
-      <ul>
-
-      <% @blog.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<div class="container">
+  
+  <%= form_with(model: @blog, local: true, url: choose_new_or_edit) do |form| %>
+   <div class="col-md-12">
+      <% if @blog.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= @blog.errors.count %>件のエラーがあります。</h2>
+          <ul>
+    
+          <% @blog.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="blog_title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="blog_title">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-  <%= form.submit %>
-<% end %>
-
-<%= link_to "ブログ一覧画面にもどる", blogs_path %>
+    
+      <div class="form_group">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+      <div class="form_group">
+         <%= form.label :content %>
+         <%= form.text_field :content %>
+      </div>
+      
+      
+      <%= form.submit class: "btn btn-primary" %>
+    
+     
+      
+    <% end %>
+    
+    <br>
+    <%= link_to "ブログ一覧画面にもどる", blogs_path %>
+     
+   </div>
+  
+   
+  
+</div>
