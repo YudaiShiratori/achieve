@@ -22,6 +22,8 @@ html {
 
 body {
   text-align: center;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -53,15 +55,15 @@ header ul:after {
   clear: both;
 }
 
-.main-header {
-  padding-bottom: 15%;
+.foto {
+  padding-bottom: 25%;
   width: 100%;
   background-size: cover;
   background-image: url("snow.jpg");
   background-attachment: fixed;
 }
 
-.main-header img {
+.foto img {
   display: block;
   margin: 0 auto;
   width: 50%;
@@ -87,10 +89,6 @@ header ul:after {
   table-layout: fixed;
 }
 
-/*.function-image {*/
-  /*display: table-cell;*/
-/*  width: 100%;*/
-/*}*/
 
 div{
   font-size: 3rem;
@@ -102,12 +100,30 @@ footer {
   color: white;
   margin: auto;
   padding-bottom: 10px;
-  font-size: 12px;
-  position: relative;
-  bottom: -100px;
+  font-size: 20px;
+  position: absolute;
+  bottom: 0;
 }
 
 ul{
   margin: 0 auto;
   list-style: none;
 }
+
+.container {
+  width: auto;
+}
+
+ 
+th{
+  text-align: center;
+}
+
+section{
+  margin-bottom: 100px;
+}
+
+label{
+  margin-right: 2rem;
+}
+
