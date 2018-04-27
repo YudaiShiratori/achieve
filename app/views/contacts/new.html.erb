@@ -14,22 +14,24 @@
     </div>
   <% end %>
 
-<div class="container">
-    <div class="name">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
-    <div class="email">
-      <%= form.label :email %>
-      <%= form.text_field :email %>
-    </div>
-    <div class="content">
-      <%= form.label :content %>
-      <%= form.text_field :content %>
-    </div>
-    <br>
+<table class="container">
+    <tr class="name">
+      <th><%= form.label :name %></th>
+      <td><%= form.text_field :name %>
+    </tr>
+    <tr class="email">
+      <th><%= form.label :email %></th>
+      <td><%= form.text_field :email %></td>
+    </tr>
+    <tr class="content">
+      <th><%= form.label :content %></th>
+      <td><%= form.text_field :content %></td>
+    </tr>
+ 
+</table>
+
+   <br>
   <%= form.submit %>
 <% end %>
-</div>
 
 <%= notice %>
