@@ -1,3 +1,5 @@
+<div class="row">
+
 <h1>お問い合わせ</h1>
 
 <%= form_with(model:@contact, local:true) do |form| %>
@@ -13,25 +15,24 @@
       </ul>
     </div>
   <% end %>
-
-<table class="container">
-    <tr class="name">
-      <th><%= form.label :name %></th>
-      <td><%= form.text_field :name %>
-    </tr>
-    <tr class="email">
-      <th><%= form.label :email %></th>
-      <td><%= form.text_field :email %></td>
-    </tr>
-    <tr class="content">
-      <th><%= form.label :content %></th>
-      <td><%= form.text_field :content %></td>
-    </tr>
- 
-</table>
-
+  
+  <div class="container">
+          <div class="name row">
+            <p class="col-xs-12 col-md-offset-2 col-md-3"><%= form.label :name %></p>
+            <p class="col-xs-12 col-md-5"><%= form.text_field :name %></p>
+          </div>
+          <div class="email row">
+            <p class="col-xs-12 col-md-offset-2 col-md-3"><%= form.label :email %></p>
+            <p class="col-xs-12 col-md-5"><%= form.text_field :email %></p>
+          </div>
+           <div class="content row">
+            <p class="col-xs-12 col-md-offset-2 col-md-3"><%= form.label :content %></p>
+            <p class="col-xs-12 col-md-5"><%= form.text_field :content %></p>
+          </div>
+  </div>
    <br>
   <%= form.submit %>
 <% end %>
 
 <%= notice %>
+
