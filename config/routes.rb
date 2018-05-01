@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   resources  :tops, only: [:index] do
   end
   
+  resources  :users do
+  end
+
+  
   root to: 'tops#index'
   
 end
