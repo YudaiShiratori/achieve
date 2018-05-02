@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :blogs do
     collection do
       post :confirm
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
   
   resources  :users do
   end
+
+  resources  :sessions, only:[:new, :create, :destroy]
 
   
   root to: 'tops#index'
