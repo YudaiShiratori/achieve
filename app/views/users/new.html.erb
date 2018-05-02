@@ -13,24 +13,31 @@
 <% end %>
 
 
+<div class="container">
+  <%= form_with(model: @user, local: true) do |f| %> 
+    <div class="row">
+       <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :name %></p>
+       <p class="col-xs-12 col-md-5"><%= f.text_field :name %></P>
+    </div>
+   
+    <div class="row">
+       <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :email %></p>
+       <p class="col-xs-12 col-md-5"><%= f.text_field :email %></p>
+    </div>
+    
+    <div class="row">
+       <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :password %></p>
+       <p class="col-xs-12 col-md-5"><%= f.text_field :password %></p>
+    </div>
+    
+    <div class="row">
+       <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :password_confirmation %></p>
+       <p class="col-xs-12 col-md-5"><%= f.text_field :password_confirmation %></p>
+    </div>
+    
+    <%= f.submit "Create my account" %>
+    
+  <% end %>
+</div>
 
-<%= form_with(model: @user, local: true) do |f| %>  
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
-  
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
-  
-  <%= f.submit "Create my account" %>
-<% end %>
 

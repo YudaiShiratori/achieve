@@ -1,14 +1,26 @@
 
 <h1>Log in</h1>
 
-<%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
+ <% flash.each do |key, value| %>
+    <%= content_tag(:div, value, class: "#{key}") %>
+ <% end %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-  <%= f.submit "Log in" %>
+
+<div class="container">
+  <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
   
-<% end %>
+  <div class="row">
+     <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :email %></p>
+     <p class="col-xs-12 col-md-5"><%= f.email_field :email %></p>
+  </div>
+   
+  <div class="row">
+     <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :password %></p>
+     <p class="col-xs-12 col-md-5"><%= f.text_field :password %></p>
+  </div>
+    
+    <%= f.submit "Log in" %>
+    
+  <% end %>
+  
+</div>
