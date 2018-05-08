@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get 'blogs/index'
 
   resources :blogs do
     collection do
@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :contacts, only: [:new, :create] do
+  resources :contacts, only: [:new, :create, :show, :confirm ] do
   end
   
   resources  :tops, only: [:index] do
@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   end
 
   resources  :sessions, only:[:new, :create, :destroy]
-
+  
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
   
   root to: 'tops#index'
   
