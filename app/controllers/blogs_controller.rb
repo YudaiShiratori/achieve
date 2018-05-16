@@ -46,6 +46,17 @@ class BlogsController < ApplicationController
   def confirm
     @blog = Blog.new(blog_params)
     render :new  if @blog.invalid?
+    
+    respond_to do |format|
+      if @blog.save
+        MakeblogMailer.makeblog_mail(@blog).deliver  
+        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.json { render :show, status: :created, location: @blog }
+      else
+        format.html { render :new }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
 

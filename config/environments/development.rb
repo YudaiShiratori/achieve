@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = tru
+  config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
@@ -53,6 +53,9 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
    BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
+   
+   config.action_mailer.default_url_options = { host: 'dive-into-code-yudaishiratori.c9users.io:8080/' }
+   config.action_mailer.delivery_method = :letter_opener
    
 end
 
