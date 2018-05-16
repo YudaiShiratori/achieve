@@ -54,5 +54,8 @@ Rails.application.configure do
   
    BetterErrors::Middleware.allow_ip! "0.0.0.0/0"  
    
+   config.action_mailer.default_url_options = { host: 'dive-into-code-yudaishiratori.c9users.io:8080/' }
+   config.action_mailer.delivery_method = :letter_opener
+   
 end
 
