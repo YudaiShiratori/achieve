@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :edit_confirm]
   before_action :login, only: [:new, :edit, :show, :destroy]
 
   def index
@@ -16,24 +16,34 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.create(blog_params)
-    if @blog.save
-      redirect_to blogs_path, notice: "ブログを作成しました！"
-    else
-      render "new"
+    respond_to do |format|
+      if @blog.save
+        MakeblogMailer.makeblog_mail(@blog).deliver
+        format.html { redirect_to blogs_path, notice: 'Blog was successfully created.' }
+        format.json { render :index, status: :created, location: @blog }
+      else
+        format.html { render :new }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
     end
   end
-
+  
   def show
   end
 
   def edit
   end
-
+  
   def update
-    if @blog.update(blog_params)
-      redirect_to blogs_path, notice: "ブログを編集しました！"
-    else
-      render 'edit'
+    respond_to do |format|
+      if @blog.update(blog_params)
+        MakeblogMailer.makeblog_mail(@blog).deliver  
+        format.html { redirect_to blogs_path, notice: 'Blog was successfully updated.' }
+        format.json { render :index, status: :created, location: @blog }
+      else
+        format.html { render :edit }
+        format.json { render json: @blog.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -46,21 +56,15 @@ class BlogsController < ApplicationController
   def confirm
     @blog = Blog.new(blog_params)
     render :new  if @blog.invalid?
-    
-    respond_to do |format|
-      if @blog.save
-        MakeblogMailer.makeblog_mail(@blog).deliver  
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
-        format.json { render :show, status: :created, location: @blog }
-      else
-        format.html { render :new }
-        format.json { render json: @blog.errors, status: :unprocessable_entity }
-      end
-    end
+  end
+  
+  def edit_confirm
+    @blog = Blog.new(blog_params)
+    @blog.id = params[:id]
+    render :edit  if @blog.invalid?
   end
 
-
-
+    
   private
   def blog_params
     params.require(:blog).permit(:title,:content)

@@ -1,7 +1,7 @@
 <div class="container">
   
   <%= form_with(model: @blog, local: true, url: choose_new_or_edit) do |form| %>
-   <!--<div class="col-md-12">-->
+  
       <% if @blog.errors.any? %>
         <div id="error_explanation">
           <h2><%= @blog.errors.count %>件のエラーがあります。</h2>

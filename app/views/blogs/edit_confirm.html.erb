@@ -1,6 +1,5 @@
 
-<%= form_with(model: @blog, local: true) do |form| %>
-<%#= form_with(model: @blog, url: blogs_path, local: true) do |form| %>
+<%= form_with(model: @blog, url: blog_path, local: true, method: 'patch') do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
 
@@ -8,11 +7,11 @@
   <p>本文:<%= @blog.content %></p>
   
   
-  <%= form.submit  "登録する",class:"btn btn-primary" %>
+  <%= form.submit  "更新する",class:"btn btn-primary" %>
   
 <% end %>
 
-<%= form_with(model: @blog, url: new_blog_path, local: true, method: 'get') do |form| %>
+<%= form_with(model: @blog, url: edit_blog_path, local: true, method: 'get') do |form| %>
   <%= form.hidden_field :title %>
   <%= form.hidden_field :content %>
   <%= form.submit "もどる", name: 'back'%>
