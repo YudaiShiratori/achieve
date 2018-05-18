@@ -16,6 +16,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.create(blog_params)
+    @blog.user_id = current_user.id
     respond_to do |format|
       if @blog.save
         MakeblogMailer.makeblog_mail(@blog).deliver
@@ -29,6 +30,7 @@ class BlogsController < ApplicationController
   end
   
   def show
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
 
   def edit
