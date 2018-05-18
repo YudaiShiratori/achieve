@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180517073822) do
   create_table "blogs", force: :cascade do |t|
     t.string "title"
     t.text "content"
+    t.integer "user_id"
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20180517073822) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
+    t.integer "blog_id"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
