@@ -39,6 +39,7 @@
   
       <% if logged_in? %>
           <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
+          <h2><%= current_user.name %>のページ</h2>
       <% else %>
           <%= link_to "新規登録", new_user_path %>
           <%= link_to "ログイン", new_session_path %>

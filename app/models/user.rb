@@ -8,8 +8,8 @@ class User < ApplicationRecord
   
   before_save {email.downcase!}
   
-  belongs_to :blogs, dependent: :destroy
+  belongs_to :blog, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :favorite_blogs, through: :favorites, source: :blogs
+  has_many :favorite_blogs, through: :favorites, source: :blog
 
 end

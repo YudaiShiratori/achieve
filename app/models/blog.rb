@@ -4,6 +4,6 @@ class Blog < ApplicationRecord
   
   has_many :users, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  has_many :favorite_users, through: :favorites, source: :users
+  has_many :favorite_users, through: :favorites, source: :user
   
 end
