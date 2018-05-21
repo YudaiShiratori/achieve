@@ -9,5 +9,5 @@ class FavoritesController < ApplicationController
     favorite = current_user.favorites.find_by(blog_id: params[:blog_id]).destroy
     redirect_to blogs_url, notice: "#{favorite.blog.users.name}のブログのお気に入りを解除しました"
   end
-
+  
 end
