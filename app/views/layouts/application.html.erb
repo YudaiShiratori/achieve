@@ -31,21 +31,18 @@
                   <li><%= link_to "TOP", tops_path %></li>
                   <li><%= link_to "一覧", blogs_path %></li>
                   <li><%= link_to "お問い合わせ", new_contact_path %></li>
+                  <% if logged_in? %>
+                      <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+                      <li><%= link_to 'お気に入り', user_path(current_user.id) %></li>
+                  <% else %>
+                      <li><%= link_to "新規登録", new_user_path %></li>
+                      <li><%= link_to "ログイン", new_session_path %></li>
+                  <% end %>
                 </ul>
               </div>
             </div>
-          </nav>
-        </header>
-  
-      <% if logged_in? %>
-          <%= link_to "ログアウト", session_path(current_user.id), method: :delete %>
-          <span><%= current_user.name %>のページ</span>
-          <span><%= link_to 'お気に入り', user_path(current_user.id) %></span>
-      <% else %>
-          <%= link_to "新規登録", new_user_path %>
-          <%= link_to "ログイン", new_session_path %>
-      <% end %>
-        
+          </nav>:        </header>
+
       <%= yield %>
       
       <footer class="fixed-bottom">
