@@ -1,12 +1,15 @@
 <p>メールアドレス: <%= @user.email %></p>
+<p>お気に入り一覧</p>
 
 <br>
 
 <% @favorite_blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= link_to '詳細', blog_path(blog.id) %></td>
-  </tr>
+  <p>
+    <tr>
+      <td><%= blog.title %></td>
+      <td><%= link_to '詳細', blog_path(blog.id) %></td>
+    </tr>
+  </p>
 <% end %>
 
 <br>
