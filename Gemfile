@@ -65,4 +65,4 @@ gem 'bcrypt'
 
 gem 'carrierwave'
 
-gem 'mini-magick'
+gem 'mini_magick'
