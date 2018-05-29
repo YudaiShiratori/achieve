@@ -26,7 +26,8 @@
       
       <div class="field">
         <p class="col-xs-12 col-md-offset-2 col-md-3"><%= form.label :image %></p>
-        <p class="col-xs-12 col-md-5"><%= form.file_field :image, id: :feed_image %></p>
+        <%= image_tag(@blog.image.url) if @blog.image.url %>
+        <p class="col-xs-12 col-md-5"><%= form.file_field :image, id: :blog_image %></p>
         <%= form.hidden_field :image_cache %>
       </div>
       
@@ -41,6 +42,4 @@
     <br>
     <%= link_to "ブログ一覧画面にもどる", blogs_path %>
      
-
-  
 </div>
