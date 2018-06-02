@@ -1,9 +1,13 @@
+<p>ユーザー: <%= @user.name %></p>
 <p>メールアドレス: <%= @user.email %></p>
-<p>お気に入り一覧</p>
+<div class="box">
+  <p><%= image_tag @user.image, class: "icon" %></p>
+</div>
 
 <br>
 
 <% @favorite_blogs.each do |blog| %>
+　<p>お気に入りブログ一覧</p>
   <p>
     <tr>
       <td><%= blog.title %></td>
