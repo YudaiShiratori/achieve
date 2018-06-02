@@ -35,6 +35,12 @@
        <p class="col-xs-12 col-md-5"><%= f.password_field :password_confirmation %></p>
     </div>
     
+    <div class="row">
+       <p class="col-xs-12 col-md-offset-2 col-md-3"><%= f.label :image %></p>
+       <p class="col-xs-12 col-md-5"><%= f.file_field :image %></p>
+       <%= f.hidden_field :image_cache %>
+    </div>
+    
     <%= f.submit "Create my account" %>
     
   <% end %>

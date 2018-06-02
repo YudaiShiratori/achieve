@@ -4,7 +4,7 @@
   <%= form.hidden_field :content %>
 
   <p>タイトル:<%= @blog.title %></p>
-  <p>本文:<%= @blog.content %></p>
+  <p>本文:<%= @blog.content %><%= image_tag(@blog.image.url) unless @blog.image.blank? %></p>
   
   
   <%= form.submit  "更新する",class:"btn btn-primary" %>

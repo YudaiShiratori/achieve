@@ -24,9 +24,16 @@
         <p class="col-xs-12 col-md-5"><%= form.text_field :content %></p>
       </div>
       
+      <div class="field">
+        <p class="col-xs-12 col-md-offset-2 col-md-3"><%= form.label :image %></p>
+        <p class="col-xs-12 col-md-5"><%= form.file_field :image, id: :blog_image %></p>
+        <%= image_tag(@blog.image.url) if @blog.image.url %>
+        <%= form.hidden_field :image_cache %>
+      </div>
+      
       <br>
       
-      <%= form.submit class: "btn btn-primary" %>
+      <p><%= form.submit class: "btn btn-primary" %></p>
     
      
       
@@ -35,6 +42,4 @@
     <br>
     <%= link_to "ブログ一覧画面にもどる", blogs_path %>
      
-
-  
 </div>

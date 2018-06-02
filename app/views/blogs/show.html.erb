@@ -1,6 +1,6 @@
 <h1>ブログ詳細画面</h1>
 <p>タイトル: <%= @blog.title %></p>
-<p>内容: <%= @blog.content %></p>
+<p>内容: <%= @blog.content %><%= image_tag @blog.image %></p>
 
 <% unless @blog.user_id == current_user.id %>
   <% if @favorite.present? %>
