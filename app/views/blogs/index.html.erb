@@ -12,7 +12,7 @@
   
    <% @blogs.each do |blog| %>
      <tr>
-       <td><%= image_tag blog.user.image, class: "icon" %><%= blog.user.name %></td>
+       <td><%= image_tag blog.user.image, class: "icon" %><p><%= blog.user.name %>さん</p></td>
        <td><%= blog.title %></td>
        <td><%= link_to '詳細', blog_path(blog.id) %></td>
        <td><%= link_to "編集", edit_blog_path(blog.id) %></td>
