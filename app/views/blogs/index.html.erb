@@ -4,13 +4,11 @@
 
 <div class="table-responsive">
   <table class="table">
-      <tr>
-        <th>ユーザー名</th> 
-        <th>タイトル</th>
-      </tr>
-  
-  
    <% @blogs.each do |blog| %>
+     <tr>
+       <th>ユーザー名</th> 
+       <th>タイトル</th>
+     </tr>
      <tr>
        <td><%= image_tag blog.user.image, class: "icon" %><p><%= blog.user.name %>さん</p></td>
        <td><%= blog.title %></td>

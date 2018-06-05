@@ -32,8 +32,22 @@
                   <li><%= link_to "一覧", blogs_path %></li>
                   <li><%= link_to "お問い合わせ", new_contact_path %></li>
                   <% if logged_in? %>
-                      <li class="icon-bar"><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-                      <li class="icon-bar"><%= link_to "お気に入り", user_path(current_user.id) %></li>
+                      <li>
+                        <nav class="navbar navbar-default">
+                            <ul class="nav navbar-nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    マイアカウント
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                      <li><%= image_tag current_user.image, class: "icon_for_header" %></li>
+                                      <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+                                      <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                      </li>
                   <% else %>
                       <li><%= link_to "新規登録", new_user_path %></li>
                       <li><%= link_to "ログイン", new_session_path %></li>
