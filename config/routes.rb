@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   get 'blogs/index'
 
   resources :blogs do
       post :confirm, on: :collection
       patch :edit_confirm, on: :member
+      resources :comments
   end
   
   resources :contacts, only: [:new, :create, :show, :confirm ] do
