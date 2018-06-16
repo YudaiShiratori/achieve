@@ -10,4 +10,11 @@
   <% end %>
 <% end %>
 
+<p>コメント一覧</p>
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: {comments: @comments, blog: @blog} %>
+</div>
+
+<%= render partial: 'comments/form', locals: {comment: @comment, blog: @blog} %>
+
 <%= link_to '一覧に戻る', '/blogs' %>

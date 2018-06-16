@@ -43,6 +43,7 @@
                                       <li><%= image_tag current_user.image, class: "icon_for_header" %></li>
                                       <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
                                       <li><%= link_to "お気に入り", user_path(current_user.id) %></li>
+                                      <li><%= link_to 'ユーザー一覧', users_path  %></li>
                                     </ul>
                                 </li>
                             </ul>
